@@ -31,6 +31,12 @@ class KoffeesController < ApplicationController
       comment.destroy
     end
     koffee.destroy
-  end 
+  end
+
+  private
+
+  def koffee_params
+    params.require(:coffee).permit(:name, :rainforest_alliance_certified, :favorite, roast_ids: [], roasts_attributes: [:roast_type])
+  end
 
 end
