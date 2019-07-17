@@ -15,5 +15,11 @@ class Koffee < ApplicationRecord
     Koffee.where(favorite: true)
   end
 
-  
+  def roast_attributes=(roast_attributes)
+    roast.attributes.values.each do |roast_attribute|
+      roast = Roast.find_or_create_by(roast_attribute)
+      self.roasts << roast
+    end
+  end
+
 end
