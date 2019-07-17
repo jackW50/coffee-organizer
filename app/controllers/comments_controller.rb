@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
-
   def create
-    Comment.create(comment_params)
+    @comment = Comment.create(comment_params)
+    render json: @comment
   end
 
   def delete
+    comment = Comment.find_by(id: params[:comment][:id])
+    comment.destroy
   end
 
   private
