@@ -1,0 +1,2 @@
+class Koffee < ApplicationRecord
+end 
