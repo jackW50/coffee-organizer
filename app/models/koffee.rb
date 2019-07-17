@@ -9,5 +9,11 @@ class Koffee < ApplicationRecord
     coffees.select do |coffee|
       coffee.name.downcase.include?(queryString)
     end
-  end 
+  end
+
+  def self.favorites
+    Koffee.where(favorite: true)
+  end
+
+  
 end
