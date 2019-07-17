@@ -5,7 +5,7 @@ function coffeesReducer (state = {
 
   switch (action.type) {
 
-    case "FETCH_COFFEES";
+    case "FETCH_COFFEES":
       return state
 
     case "SEARCH_COFFEES":
