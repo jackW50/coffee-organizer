@@ -19,9 +19,23 @@ const Home = () => {
   )
 }
 
+const AddCoffee = () => {
+  return(
+    <Provider store={store}>
+      <form>
+        <input type="text" name="coffee-name" placeholder="coffee name" />
+        <input type="submit" />
+      </form>
+    </Provider>
+  )
+}
+
 ReactDOM.render(
   <Router>
-    <Route path="/" component={Home} />
+    <React.Fragment>
+      <Route exact path="/" component={Home} />
+      <Route path="/add_coffee" component={AddCoffee} />
+    </React.Fragment>
   </Router>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
