@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
 import thunk from 'redux-thunk';
 import App from './App';
+import CoffeeAdd from './components/coffees/CoffeeAdd.js';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -61,7 +62,7 @@ ReactDOM.render(
     <React.Fragment>
       <Navbar />
       <Route exact path="/" component={Home} />
-      <Route exact path="/add_coffee" component={AddCoffee} />
+      <Route exact path="/add_coffee" component={CoffeeAdd} />
     </React.Fragment>
   </Router>, document.getElementById('root'));
 

@@ -29,4 +29,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { seeFavorites, addCoffee, deleteCoffee, updateCoffee })(CoffeesContainer);
+export default connect(mapStateToProps, { seeFavorites, addCoffee, deleteCoffee, updateCoffee, searchCoffees })(CoffeesContainer);
