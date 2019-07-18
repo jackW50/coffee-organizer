@@ -6,7 +6,8 @@ function coffeesReducer (state = {
   switch (action.type) {
 
     case "FETCH_COFFEES":
-      return state
+      console.log('fetched coffees', action)
+      return {...state, coffees: action.payload}
 
     case "SEARCH_COFFEES":
       return state

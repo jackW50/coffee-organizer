@@ -35,8 +35,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>Home Page</header>
-        <p>{this.props.coffees}</p>
-        <p>{this.props.coffeeSearch}</p>
+        <ul>{this.props.coffees.map(coffee => <li key={coffee.id}> {coffee.name} </li>)}</ul>
+        <ul>{this.props.coffeeSearch.map(coffee => <li key={coffee.id}> {coffee.name} </li>)}</ul>
       </div>
     );
   }
