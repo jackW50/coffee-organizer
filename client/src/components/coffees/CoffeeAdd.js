@@ -2,6 +2,39 @@ import React, { useState } from 'react';
 
 const CoffeeAdd = props => {
 
+  const [ name, setName ] = useState('')
+  const [ RainforestAllianceCertified, setRainforestAllianceCertified ] = useState(false)
+  const [ roasts, setRoasts ] = useState([])
+  const [ addRoast, setAddRoast ] = useState('')
+
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+
+  function handleRainforestChange(e) {
+    setRainforestAllianceCertified(!e.target.value);
+  }
+
+  function handleRoastChange(e) {
+    setRoasts(...roasts, e.target.value);
+  }
+
+  function handleAddRoastChange(e) {
+    setAddRoast(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const coffee = {
+      name: name,
+      rainforest_alliance_certified: RainforestAllianceCertified,
+      roasts: roasts,
+      addRoast: { roast_type: addRoast }
+    }
+    //props.removeCoffeeForm()
+    props.addCoffee(coffee);
+  }
+
   return (
     <div>
       <h3>Add a Coffee</h3>
