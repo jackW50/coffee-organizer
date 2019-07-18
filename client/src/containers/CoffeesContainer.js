@@ -11,22 +11,21 @@ class CoffeesContainer extends Component {
   render() {
     return(
       <div>
-        <CoffeeSearch searchCoffees={this.props.searchCoffees} />
+        <CoffeeSearch searchCoffees={this.props.searchCoffees}  />
         <Coffees coffees={this.props.coffees}
           deleteCoffee={this.props.deleteCoffee}
           updateCoffee={this.props.updateCoffee}
         />
-
 
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    coffees: state.coffees.coffeeSearch
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     coffees: state.coffees.coffeeSearch
+//   }
+// }
 
-export default connect(mapStateToProps, { seeFavorites, addCoffee, deleteCoffee, updateCoffee, searchCoffees })(CoffeesContainer);
+export default connect(null, { seeFavorites, addCoffee, deleteCoffee, updateCoffee, searchCoffees })(CoffeesContainer);

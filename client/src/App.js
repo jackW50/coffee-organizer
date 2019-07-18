@@ -1,32 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 //import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import {fetchCoffees, addCoffee } from './actions/coffeeActions';
+import {fetchCoffees, addCoffee, seeFavorites, deleteCoffee, updateCoffee } from './actions/coffeeActions';
 import CoffeesContainer from './containers/CoffeesContainer.js';
 import CoffeeAdd from './components/coffees/CoffeeAdd.js';
+import Coffees from './components/coffees/Coffees.js';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+
 const link = {
   width: '100px',
   height: '30px',
@@ -34,7 +16,7 @@ const link = {
   margin: '0 6px 6px',
   background: 'grey',
   textDecoration: 'none',
-  color: 'red',
+  color: 'white',
 }
 
 const Navbar = () =>
@@ -45,47 +27,62 @@ const Navbar = () =>
       style={link}
       activeStyle={{ background: 'black' }}
     >Home</NavLink>
-      <NavLink
-        to="/add_coffee"
-        exact
-        style={link}
-        activeStyle={{ background: 'black' }}
-      >Add Coffee</NavLink>
+    <NavLink
+      to="/add_coffee"
+      exact
+      style={link}
+      activeStyle={{ background: 'black' }}
+    >Add Coffee</NavLink>
+    <NavLink
+      to="/favorites"
+      exact
+      style={link}
+      activeStyle={{ background: 'black' }}
+    >Favorites</NavLink>
     </div>;
 
-    const Home = () => {
-      return(
-        <CoffeesContainer />
-      )
-    }
 
-    const AddCoffee = () => {
-      return(
-        <CoffeeAdd addCoffee={addCoffee} />
-      )
-    }
+function App(props) {
 
-class App extends React.Component {
+  useEffect(() => {
+    props.fetchCoffees();
+  }, [])
 
-
-  componentDidMount() {
-    this.props.fetchCoffees()
+  function favorites() {
+    seeFavorites();
+    return (
+      <Coffees coffees={props.coffees} updateCoffee={props.updateCoffee} deleteCoffee={props.deleteCoffee} />
+    )
   }
 
-  render() {
+  function addCoffee() {
+    return(
+      <CoffeeAdd addCoffee={addCoffee} coffees={props.coffees}/>
+    )
+  }
+
+  function home() {
+    return(
+      <CoffeesContainer coffees={props.coffees}/>
+    )
+  }
+
+
     return (
       <div className="App">
-  
+
       <Router>
         <React.Fragment>
           <Navbar />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/add_coffee" component={AddCoffee} />
+          <Route exact path="/" component={home} />
+          <Route exact path="/favorites" component={favorites} />
+          <Route exact path="/add_coffee" component={addCoffee} />
+
         </React.Fragment>
       </Router>
       </div>
     );
-  }
+
 }
 
 const mapStateToProps = state => {
@@ -95,4 +92,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchCoffees })(App)
+
+export default connect(mapStateToProps, { fetchCoffees, seeFavorites, addCoffee, deleteCoffee, updateCoffee })(App)
