@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './index.css';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -10,6 +10,31 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
+
+const link = {
+  width: '100px',
+  padding: '12px',
+  margin: '0 6px 6px',
+  background: 'grey',
+  textDecoration: 'none',
+  color: 'black',
+}
+
+const Navbar = () =>
+  <div>
+    <NavLink
+      to="/"
+      exact
+      style={link}
+      activeStyle={{ background: 'red' }}
+    >Home</NavLink>
+      <NavLink
+        to="/add_coffee"
+        exact
+        style={link}
+        activeStyle={{ background: 'red' }}
+      >Add Coffee</NavLink>
+    </div>;
 
 const Home = () => {
   return(
@@ -33,8 +58,9 @@ const AddCoffee = () => {
 ReactDOM.render(
   <Router>
     <React.Fragment>
+      <Navbar />
       <Route exact path="/" component={Home} />
-      <Route path="/add_coffee" component={AddCoffee} />
+      <Route exact path="/add_coffee" component={AddCoffee} />
     </React.Fragment>
   </Router>, document.getElementById('root'));
 
