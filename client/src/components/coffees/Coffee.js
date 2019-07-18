@@ -27,14 +27,10 @@ const Coffee = props => {
     }
   }
 
-  function handleFavoriteAdd(e) {
+  function handleFavoriteClick(e) {
     e.preventDefault();
-    console.log('handling the favorite button click :-)');
-  }
-
-  function handleRemoveFavorite(e) {
-    e.preventDefault();
-    console.log('removing from faves :-( ')
+    console.log('handling the favorite button click');
+    console.log('update favorite attribute for this coffee. Toggle boolean value for each click.')
   }
 
   return (
