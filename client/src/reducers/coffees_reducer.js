@@ -15,14 +15,14 @@ function coffeesReducer (state = {
     case "SEE_FAVORITES":
       return state
 
-    case "UPDATE_FAVORITE":
+    case "UPDATE_COFFEE":
       return state;
 
     case "DELETE_COMMENT":
       return state;
 
     case "ADD_COMMENT":
-    return state; 
+    return state;
 
     default:
       return state;

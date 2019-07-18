@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import CommentsContainer from '../../containers/CommentsContainer.js';
-import { connect } from 'react-redux';
-import { updateFavorite } from '../../actions/coffeeActions.js';
 
 
 const Coffee = props => {
@@ -29,6 +27,7 @@ const Coffee = props => {
 
   function handleFavoriteClick(e) {
     e.preventDefault();
+    //updateCoffee({id: props.id, favorite: !props.favorite})
     console.log('handling the favorite button click');
     console.log('update favorite attribute for this coffee. Toggle boolean value for each click.')
   }
@@ -49,4 +48,4 @@ const Coffee = props => {
   )
 }
 
-export default connect(null, { updateFavorite })(Coffee);
+export default (Coffee);
