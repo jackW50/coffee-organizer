@@ -32,6 +32,7 @@ const CoffeeAdd = props => {
       addRoast: { roast_type: addRoast }
     }
     //props.removeCoffeeForm()
+    //or send back to home route.
     props.addCoffee(coffee);
   }
 

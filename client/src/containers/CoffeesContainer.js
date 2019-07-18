@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Coffees from '../components/coffees/Coffees.js';
-import CoffeeAdd from '../components/coffees/CoffeeAdd.js';
+//import CoffeeAdd from '../components/coffees/CoffeeAdd.js';
 import CoffeeSearch from '../components/coffees/CoffeeSearch.js';
 import { seeFavorites, addCoffee, deleteCoffee, updateCoffee, searchCoffees } from '../actions/coffeeActions';
 

@@ -1,9 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 //import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import {fetchCoffees } from './actions/coffeeActions';
-import CoffeesContainer from './containers/CoffeesContainer.js'
+import {fetchCoffees, addCoffee } from './actions/coffeeActions';
+import CoffeesContainer from './containers/CoffeesContainer.js';
+import CoffeeAdd from './components/coffees/CoffeeAdd.js';
 
 // function App() {
 //   return (
@@ -25,8 +27,46 @@ import CoffeesContainer from './containers/CoffeesContainer.js'
 //     </div>
 //   );
 // }
+const link = {
+  width: '100px',
+  height: '30px',
+  padding: '5px',
+  margin: '0 6px 6px',
+  background: 'grey',
+  textDecoration: 'none',
+  color: 'red',
+}
+
+const Navbar = () =>
+  <div className="flex">
+    <NavLink
+      to="/"
+      exact
+      style={link}
+      activeStyle={{ background: 'black' }}
+    >Home</NavLink>
+      <NavLink
+        to="/add_coffee"
+        exact
+        style={link}
+        activeStyle={{ background: 'black' }}
+      >Add Coffee</NavLink>
+    </div>;
+
+    const Home = () => {
+      return(
+        <CoffeesContainer />
+      )
+    }
+
+    const AddCoffee = () => {
+      return(
+        <CoffeeAdd addCoffee={addCoffee} />
+      )
+    }
 
 class App extends React.Component {
+
 
   componentDidMount() {
     this.props.fetchCoffees()
@@ -35,8 +75,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header>Home Page</header>
-        <CoffeesContainer />
+  
+      <Router>
+        <React.Fragment>
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/add_coffee" component={AddCoffee} />
+        </React.Fragment>
+      </Router>
       </div>
     );
   }
