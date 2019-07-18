@@ -14,8 +14,16 @@ export function searchCoffees() {
   console.log('send api get req for coffees that include the query sent, and update state with the response.')
 }
 
-export function addCoffee() {
+export function addCoffee(coffee) {
   console.log('send create req to api and add newly created coffee to state.')
+  return (dispatch) => {
+    return fetch('/koffees', {
+      method: 'POST',
+      body: coffee,
+    })
+    .then(response => response.json())
+    .then(coffee => dispatch({ type: "ADD_COFFEE", payload: coffee }))
+  }
 }
 
 export function updateCoffee() {

@@ -57,7 +57,7 @@ function App(props) {
 
   function addCoffee() {
     return(
-      <CoffeeAdd addCoffee={addCoffee} coffees={props.coffees}/>
+      <CoffeeAdd addCoffee={props.addCoffee} coffees={props.coffees}/>
     )
   }
 

@@ -12,6 +12,7 @@ class KoffeesController < ApplicationController
   end
 
   def create
+    raise params.inspect
     @coffee = Koffee.create(koffee_params)
     render json: @coffee
   end
