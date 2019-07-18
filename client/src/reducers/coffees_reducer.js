@@ -15,6 +15,9 @@ function coffeesReducer (state = {
     case "SEE_FAVORITES":
       return state
 
+    case "UPDATE_FAVORITE":
+      return state;
+
     default:
       return state;
 

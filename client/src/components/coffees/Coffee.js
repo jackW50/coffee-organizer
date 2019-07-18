@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import CommentsContainer from '../../containers/CommentsContainer.js'
+import CommentsContainer from '../../containers/CommentsContainer.js';
+import { connect } from 'react-redux';
+import { updateFavorite } from '../../actions/coffeeActions.js';
 
 
 const Coffee = props => {
@@ -25,6 +27,15 @@ const Coffee = props => {
     }
   }
 
+  function handleFavoriteAdd(e) {
+    e.preventDefault();
+    console.log('handling the favorite button click :-)');
+  }
+
+  function handleRemoveFavorite(e) {
+    e.preventDefault();
+    console.log('removing from faves :-( ')
+  }
 
   return (
     <div>
@@ -42,4 +53,4 @@ const Coffee = props => {
   )
 }
 
-export default Coffee;
+export default connect(null, { updateFavorite })(Coffee);
