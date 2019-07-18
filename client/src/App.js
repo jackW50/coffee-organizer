@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import {fetchCoffees } from './actions/coffeeActions';
+import CoffeesContainer from './containers/CoffeesContainer.js'
 
 // function App() {
 //   return (
@@ -35,8 +36,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>Home Page</header>
-        <ul>{this.props.coffees.map(coffee => <li key={coffee.id}> {coffee.name} </li>)}</ul>
-        <ul>{this.props.coffeeSearch.map(coffee => <li key={coffee.id}> {coffee.name} </li>)}</ul>
+        <CoffesContainer />
       </div>
     );
   }

@@ -23,6 +23,6 @@ export function updateCoffee() {
   console.log('it will send back the updated coffee that we can change the state with');
 }
 
-export deleteCoffee() {
+export function deleteCoffee() {
   console.log('send delete req to api, and remove this coffee from state.')
 }
