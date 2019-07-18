@@ -18,6 +18,12 @@ function coffeesReducer (state = {
     case "UPDATE_FAVORITE":
       return state;
 
+    case "DELETE_COMMENT":
+      return state;
+
+    case "ADD_COMMENT":
+    return state; 
+
     default:
       return state;
 
