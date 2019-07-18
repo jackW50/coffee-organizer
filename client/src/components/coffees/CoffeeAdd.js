@@ -4,7 +4,7 @@ const CoffeeAdd = props => {
 
   const [ name, setName ] = useState('')
   const [ RainforestAllianceCertified, setRainforestAllianceCertified ] = useState(false)
-  const [ roasts, setRoasts ] = useState([])
+  const [ roasts, setRoasts ] = useState({ light: false, medium: false, medium_dark: false, dark: false })
   const [ addRoast, setAddRoast ] = useState('')
 
   function handleNameChange(e) {
@@ -12,11 +12,14 @@ const CoffeeAdd = props => {
   }
 
   function handleRainforestChange(e) {
-    setRainforestAllianceCertified(!e.target.value);
+    setRainforestAllianceCertified(e.target.checked);
   }
 
   function handleRoastChange(e) {
-    setRoasts(...roasts, e.target.value);
+    const val = e.target.checked;
+    const name = e.target.name;
+    let updatedRoasts = Object.assign({}, roasts, {[name]: val})
+    setRoasts(updatedRoasts);
   }
 
   function handleAddRoastChange(e) {
@@ -25,6 +28,7 @@ const CoffeeAdd = props => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    
     const coffee = {
       name: name,
       rainforest_alliance_certified: RainforestAllianceCertified,
@@ -41,30 +45,30 @@ const CoffeeAdd = props => {
       <h3>Add a Coffee</h3>
       <form onSubmit={handleSubmit}>
         <input type="text" value={name} onChange={handleNameChange} placeholder="coffee name"/><br/>
-        <input type="radio" name="certified" onClick={handleRainforestChange} />Rainforest Alliance Certified <br/>
+        <input type="checkbox" name="certified" onChange={handleRainforestChange} />Rainforest Alliance Certified <br/>
         <input
           type="checkbox"
           name="light"
-          onClick={handleRoastChange}
-          value='1'
+          onChange={handleRoastChange}
+          value={roasts.light}
         />light
         <input
           type="checkbox"
           name="medium"
-          onClick={handleRoastChange}
-          value='2'
+          onChange={handleRoastChange}
+          value={roasts.medium}
         />medium
         <input
           type="checkbox"
           name="medium-dark"
-          onClick={handleRoastChange}
-          value='3'
+          onChange={handleRoastChange}
+          value={roasts.medium_dark}
         />medium-dark
         <input
           type="checkbox"
           name="dark"
           onClick={handleRoastChange}
-          value='4'
+          value={roasts.dark}
         />dark <br/>
         <input type="text" value={addRoast} onChange={handleAddRoastChange} placeholder="add roast"/>*optional <br/>
         <input type="submit" value="add coffee" />
