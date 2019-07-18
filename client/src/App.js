@@ -36,7 +36,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>Home Page</header>
-        <CoffesContainer />
+        <CoffeesContainer />
       </div>
     );
   }

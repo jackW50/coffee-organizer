@@ -13,13 +13,13 @@ const Coffee = props => {
   function favorite() {
     if (!props.favorite) {
       return (
-        <button onClick={handleFavoriteAdd}>Add to Favorites</button>
+        <button onClick={handleFavoriteClick}>Add to Favorites</button>
       )
     } else {
       return (
         <div>
           <span className="favorite" >**Faved**</span>
-          <button onClick={handleRemoveFavorite}>Remove From Favorites</button>
+          <button onClick={handleFavoriteClick}>Remove From Favorites</button>
         </div>
       )
     }
