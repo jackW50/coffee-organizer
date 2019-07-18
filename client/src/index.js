@@ -13,26 +13,27 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const link = {
   width: '100px',
-  padding: '12px',
+  height: '30px',
+  padding: '5px',
   margin: '0 6px 6px',
   background: 'grey',
   textDecoration: 'none',
-  color: 'black',
+  color: 'red',
 }
 
 const Navbar = () =>
-  <div>
+  <div className="flex">
     <NavLink
       to="/"
       exact
       style={link}
-      activeStyle={{ background: 'red' }}
+      activeStyle={{ background: 'black' }}
     >Home</NavLink>
       <NavLink
         to="/add_coffee"
         exact
         style={link}
-        activeStyle={{ background: 'red' }}
+        activeStyle={{ background: 'black' }}
       >Add Coffee</NavLink>
     </div>;
 
