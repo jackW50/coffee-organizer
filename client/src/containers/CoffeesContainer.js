@@ -22,10 +22,4 @@ class CoffeesContainer extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     coffees: state.coffees.coffeeSearch
-//   }
-// }
-
 export default connect(null, { seeFavorites, addCoffee, deleteCoffee, updateCoffee, searchCoffees })(CoffeesContainer);
