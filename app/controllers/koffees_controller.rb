@@ -12,9 +12,9 @@ class KoffeesController < ApplicationController
   end
 
   def create
-    binding.pry
-    #@coffee = Koffee.create(koffee_params)
-    #render json: @coffee
+    #binding.pry
+    @coffee = Koffee.create(koffee_params)
+    render json: @coffee
   end
 
   def update
@@ -37,7 +37,7 @@ class KoffeesController < ApplicationController
   private
 
   def koffee_params
-    params.require(:koffee).permit(:name, :rainforest_alliance_certified, :favorite, roast_ids: [], roasts_attributes: [:roast_type])
+    params.require(:koffee).permit(:name, :rainforest_alliance_certified, :favorite, roast_ids: [], roast_attributes: [:roast_type])
   end
 
 end
