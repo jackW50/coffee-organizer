@@ -16,8 +16,15 @@ export function seeFavorites() {
   }
 }
 
-export function searchCoffees() {
+export function searchCoffees(query) {
   console.log('send api get req for coffees that include the query sent, and update state with the response.')
+  const url = '/koffees/?search=' + query
+
+  return (dispatch) => {
+    return fetch(url)
+      .then(response => response.json())
+      .then(coffees => dispatch({ type: "SEACRH_COFFEES", payload: coffees }))
+  }
 }
 
 export function addCoffee(coffee) {
