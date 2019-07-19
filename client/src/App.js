@@ -39,6 +39,12 @@ const Navbar = () =>
       style={link}
       activeStyle={{ background: 'black' }}
     >Favorites</NavLink>
+    <NavLink
+      to="/see_all"
+      exact
+      style={link}
+      activeStyle={{ background: 'black' }}
+    >See All</NavLink>
     </div>;
 
 
@@ -67,6 +73,12 @@ function App(props) {
     )
   }
 
+  function seeAll() {
+    return(
+      <Coffees coffees={props.coffees} updateCoffee={props.updateCoffee} deleteCoffee={props.deleteCoffee} />
+    )
+  }
+
 
     return (
       <div className="App">
@@ -77,7 +89,7 @@ function App(props) {
           <Route exact path="/" component={home} />
           <Route exact path="/favorites" component={favorites} />
           <Route exact path="/add_coffee" component={addCoffee} />
-
+          <Route exact path="/see_all" component={seeAll} />
         </React.Fragment>
       </Router>
       </div>
