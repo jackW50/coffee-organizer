@@ -8,6 +8,12 @@ export function fetchCoffees() {
 
 export function seeFavorites() {
   console.log('send api get request for only favorited coffees, and update state with response.')
+  const url = '/koffees/?favorites=true'
+  return (dispatch) => {
+    return fetch(url)
+      .then(response => response.json())
+      .then(coffees => dispatch({ type: "SEE_FAVORITES", payload: coffees }))
+  }
 }
 
 export function searchCoffees() {
