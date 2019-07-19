@@ -16,10 +16,15 @@ export function searchCoffees() {
 
 export function addCoffee(coffee) {
   console.log('send create req to api and add newly created coffee to state.')
+  //debugger
   return (dispatch) => {
     return fetch('/koffees', {
       method: 'POST',
-      body: coffee,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ koffee: coffee })
     })
     .then(response => response.json())
     .then(coffee => dispatch({ type: "ADD_COFFEE", payload: coffee }))
