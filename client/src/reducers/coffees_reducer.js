@@ -38,11 +38,28 @@ function coffeesReducer (state = {
         }
       }
 
-    case "DELETE_COMMENT":
-      return state;
+    case "DELETE_COFFEE":
+      console.log('removing this coffee by its id', action.payload);
+      const coffeeIndex = state.coffees.findIndex(e => e.id === action.payload);
+      const favoritesIndex = state.favorites.findIndex(e => e.id === action.payload);
+      const coffeeArray = [...state.coffees.slice(0, coffeeIndex), ...state.coffees.slice(coffeeIndex + 1)];
+      const favoritesArray = () => {
+        if (favoritesIndex === -1) {
+          return state.favorites
+        } else {
+          return [...state.favorites.slice(0, favoritesIndex), ...state.favorites.slice(favoritesIndex + 1)]
+        }
+      }
+      return { ...state,
+        coffees: coffeeArray,
+        favorites: favoritesArray()
+      }
 
     case "ADD_COMMENT":
-    return state;
+      return state;
+
+    case "DELETE_COMMENT":
+      return state;
 
     default:
       return state;
