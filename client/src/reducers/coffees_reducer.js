@@ -17,7 +17,7 @@ function coffeesReducer (state = {
 
     case "ADD_COFFEE":
       console.log('adding a coffee', action.payload)
-      return state
+      return {...state, coffees: [...state.coffees, action.payload]}
 
     case "UPDATE_COFFEE":
       return state;
