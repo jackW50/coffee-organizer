@@ -11,7 +11,8 @@ function coffeesReducer (state = {
       return {...state, coffees: action.payload}
 
     case "SEARCH_COFFEES":
-      return state
+      console.log('showing the matches of the coffee search', action)
+      return { ...state, coffeeSearch: action.payload }
 
     case "SEE_FAVORITES":
       console.log('showing the favorite coffees', action)

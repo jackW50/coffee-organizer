@@ -23,7 +23,7 @@ export function searchCoffees(query) {
   return (dispatch) => {
     return fetch(url)
       .then(response => response.json())
-      .then(coffees => dispatch({ type: "SEACRH_COFFEES", payload: coffees }))
+      .then(coffees => dispatch({ type: "SEARCH_COFFEES", payload: coffees }))
   }
 }
 
