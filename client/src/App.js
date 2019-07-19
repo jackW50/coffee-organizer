@@ -69,7 +69,7 @@ function App(props) {
 
   function home() {
     return(
-      <CoffeesContainer coffees={props.coffees}/>
+      <CoffeesContainer coffees={props.coffeeSearch}/>
     )
   }
 
