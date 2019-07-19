@@ -15,6 +15,10 @@ function coffeesReducer (state = {
     case "SEE_FAVORITES":
       return state
 
+    case "ADD_COFFEE":
+      console.log('adding a coffee', action.payload)
+      return state
+
     case "UPDATE_COFFEE":
       return state;
 

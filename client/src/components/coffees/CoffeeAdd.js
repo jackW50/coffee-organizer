@@ -34,13 +34,10 @@ const CoffeeAdd = props => {
     const coffee = {
       name: name,
       rainforest_alliance_certified: RainforestAllianceCertified,
-      roasts: roasts,
-      addRoast: [{ roast_type: addRoast }]
+      roast_ids: roasts,
+      roast_attributes: { roast_type: addRoast }
     }
-    //(:koffee).permit(:name, :rainforest_alliance_certified, :favorite, roast_ids: [], roasts_attributes: [:roast_type])
-    //props.removeCoffeeForm()
-    //or send back to home route.
-    //debugger 
+
     props.addCoffee(coffee);
   }
 
