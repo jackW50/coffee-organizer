@@ -60,9 +60,17 @@ export function updateCoffee(attributes) {
       .then(coffee => dispatch({ type: "UPDATE_COFFEE", payload: coffee }))
   }
 
-
 }
 
-export function deleteCoffee() {
+export function deleteCoffee(id) {
   console.log('send delete req to api, and remove this coffee from state.')
+  return (dispatch) => {
+    return fetch('/koffees/' + id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => dispatch({ type: 'DELETE_COFFEE', payload: id }))
+  }
 }

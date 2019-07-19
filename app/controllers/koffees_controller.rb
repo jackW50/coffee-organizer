@@ -22,11 +22,11 @@ class KoffeesController < ApplicationController
 
     @coffee.update(koffee_params)
 
-    render json: @coffee  
+    render json: @coffee
   end
 
   def destroy
-    koffee = Koffee.find_by(id: params[:coffee][:id])
+    koffee = Koffee.find_by(id: params[:id])
     koffee.koffee_roasts.each do |koffee_roast|
       koffee_roast.destory
     end
