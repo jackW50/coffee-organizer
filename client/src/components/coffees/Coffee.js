@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CommentsContainer from '../../containers/CommentsContainer.js';
 
 
 const Coffee = props => {
 
-  const [fave, setFave] = useState(props.favorite)
+
 
   function certified() {
     if (props.rainforestAllianceCertified) {
@@ -13,7 +13,7 @@ const Coffee = props => {
   }
 
   function favorite() {
-    if (!fave) {
+    if (!props.favorite) {
 
       return (
         <button onClick={handleFavoriteClick}>Add to Favorites</button>
@@ -32,7 +32,7 @@ const Coffee = props => {
     e.preventDefault();
     console.log('handling the favorite button click');
     console.log('update favorite attribute for this coffee. Toggle boolean value for each click.')
-    props.updateCoffee({ id: props.id, favorite: fave })
+    props.updateCoffee({ id: props.id, favorite: !props.favorite })
 
   }
 

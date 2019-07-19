@@ -48,7 +48,14 @@ export function updateCoffee(attributes) {
   console.log('this will send and update req to server and update coffee');
   console.log('it will send back the updated coffee that we can change the state with');
   return (dispatch) => {
-    return fetch('/koffees/' + attributes.id)
+    return fetch('/koffees/' + attributes.id, {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ koffee: { favorite: attributes.favorite }})
+    })
       .then(response => response.json())
       .then(coffee => dispatch({ type: "UPDATE_COFFEE", payload: coffee }))
   }

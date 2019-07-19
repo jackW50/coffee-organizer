@@ -23,6 +23,7 @@ function coffeesReducer (state = {
       return {...state, coffees: [...state.coffees, action.payload]}
 
     case "UPDATE_COFFEE":
+      console.log('updating the coffee', action.payload)
       return state;
 
     case "DELETE_COMMENT":

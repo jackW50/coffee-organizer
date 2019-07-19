@@ -18,9 +18,11 @@ class KoffeesController < ApplicationController
   end
 
   def update
-    koffee = Koffee.find_by(id: params[:coffee][:id])
-    @coffee = Koffee.update(koffee_params)
-    render json: @coffee
+    @coffee = Koffee.find_by(id: params[:id])
+
+    @coffee.update(koffee_params)
+
+    render json: @coffee  
   end
 
   def destroy
