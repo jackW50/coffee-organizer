@@ -44,9 +44,16 @@ export function addCoffee(coffee) {
   }
 }
 
-export function updateCoffee() {
+export function updateCoffee(attributes) {
   console.log('this will send and update req to server and update coffee');
   console.log('it will send back the updated coffee that we can change the state with');
+  return (dispatch) => {
+    return fetch('/koffees/' + attributes.id)
+      .then(response => response.json())
+      .then(coffee => dispatch({ type: "UPDATE_COFFEE", payload: coffee }))
+  }
+
+
 }
 
 export function deleteCoffee() {
