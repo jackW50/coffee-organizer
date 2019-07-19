@@ -2,7 +2,7 @@ class KoffeesController < ApplicationController
 
   def index
     if params[:search]
-      @coffees = Koffee.search
+      @coffees = Koffee.search(params[:search])
     elsif params[:favorites]
       @coffees = Koffee.favorites
     else
