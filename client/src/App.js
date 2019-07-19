@@ -52,12 +52,12 @@ function App(props) {
 
   useEffect(() => {
     props.fetchCoffees();
+    props.seeFavorites();
   }, [])
 
   function favorites() {
-    seeFavorites();
     return (
-      <Coffees coffees={props.coffees} updateCoffee={props.updateCoffee} deleteCoffee={props.deleteCoffee} />
+      <Coffees coffees={props.favorites} updateCoffee={props.updateCoffee} deleteCoffee={props.deleteCoffee} />
     )
   }
 
@@ -100,7 +100,8 @@ function App(props) {
 const mapStateToProps = state => {
   return {
     coffees: state.coffees.coffees,
-    coffeeSearch: state.coffees.coffeeSearch
+    coffeeSearch: state.coffees.coffeeSearch,
+    favorites: state.coffees.favorites
   }
 }
 

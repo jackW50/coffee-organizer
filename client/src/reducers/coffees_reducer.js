@@ -1,6 +1,7 @@
 function coffeesReducer (state = {
   coffees: [],
-  coffeeSearch: []
+  coffeeSearch: [],
+  favorites: []
 }, action) {
 
   switch (action.type) {
@@ -13,7 +14,8 @@ function coffeesReducer (state = {
       return state
 
     case "SEE_FAVORITES":
-      return state
+      console.log('showing the favorite coffees', action)
+      return { ...state, favorites: action.payload }
 
     case "ADD_COFFEE":
       console.log('adding a coffee', action.payload)
