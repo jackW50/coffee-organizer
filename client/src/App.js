@@ -52,6 +52,9 @@ function App(props) {
 
   useEffect(() => {
     props.fetchCoffees();
+  }, [])
+
+  useEffect(() => {
     props.seeFavorites();
   }, [])
 

@@ -25,10 +25,10 @@ class KoffeesController < ApplicationController
     render json: @coffee
   end
 
-  def destroy
+  def destroy 
     koffee = Koffee.find_by(id: params[:id])
     koffee.koffee_roasts.each do |koffee_roast|
-      koffee_roast.destory
+      koffee_roast.destroy
     end
     koffee.comments.each do |comment|
       comment.destroy
