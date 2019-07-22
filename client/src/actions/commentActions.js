@@ -3,8 +3,14 @@ export function addComment(comment, coffeeId) {
   return (dispatch) => {
     return fetch(`/koffees/${coffeeId}/comments`, {
       method: 'POST',
-      body: comment,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ comment: comment })
     })
+    .then(response => response.json())
+    .then(comment => dispatch({ type: "ADD_COMMENT", payload: comment }))
   }
 }
 
