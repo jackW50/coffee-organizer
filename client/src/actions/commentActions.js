@@ -1,7 +1,13 @@
-export function deleteComment() {
-  console.log('send api req to destroy comment.');
+export function addComment(comment, coffeeId) {
+  console.log('send api req to create a comment.');
+  return (dispatch) => {
+    return fetch(`/koffees/${coffeeId}/comments`, {
+      method: 'POST',
+      body: comment,
+    })
+  }
 }
 
-export function addComment() {
-  console.log('send api req to create a comment.')
+export function deleteComment() {
+  console.log('send api req to destroy comment.');
 }
