@@ -16,8 +16,10 @@ class Koffee < ApplicationRecord
   end
 
   def roast_attributes=(roast_attributes)
-    roast = Roast.find_or_create_by(roast_attributes)
-    self.roasts << roast
+    if !roast_attributes[:roast_type].blank?
+      roast = Roast.find_or_create_by(roast_attributes)
+      self.roasts << roast
+    end
   end
 
 end
