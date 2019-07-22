@@ -10,7 +10,7 @@ class CommentsContainer extends Component {
     return (
       <div>
         <CommentInput addComment={this.props.addComment} coffeeId={this.props.coffeeId} />
-        <Comments comments={this.props.comments} delete={this.props.deleteComment} />
+        <Comments comments={this.props.comments} deleteComment={this.props.deleteComment} />
       </div>
     );
   }

@@ -86,7 +86,22 @@ function coffeesReducer (state = {
       }
 
     case "ADD_COMMENT":
-      return state;
+      console.log('adding a comment', action.payload);
+      //find coffee
+      const coffee = state.coffees.find(e => e.id === action.payload.koffee_id);
+      //update object
+      const updatedCoffee = Object.assign({}, coffee, {comments: [...coffee.comments, action.payload]})
+      //const updateCoffee = {...coffee, comments: [...coffee.comments, { id: action.payload.id, text: action.payload.text }]}
+      //findIndex of coffee
+      const cofIndex = state.coffees.findIndex(e => e.id === action.payload.koffee_id);
+      //update the state to include the updated object
+      //debugger
+
+      return {...state,
+        coffees: [...state.coffees.slice(0, cofIndex), updatedCoffee, ...state.coffees.slice(cofIndex + 1)],
+        favorites: arrayGeneratorUpdate(favoritesIndexFind(action.payload.koffee_id), state.favorites, updatedCoffee),
+        coffeeSearch: arrayGeneratorUpdate(coffeeSearchIndexFind(action.payload.koffee_id), state.coffeeSearch, updatedCoffee)
+      }
 
     case "DELETE_COMMENT":
       return state;
