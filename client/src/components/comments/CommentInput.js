@@ -11,7 +11,8 @@ const CommentInput = props => {
   function handleSubmit(e) {
     e.preventDefault();
     const comment = text;
-    props.addComment(comment);
+    const coffeeId = props.coffeeId;
+    props.addComment(comment, coffeeId);
   }
 
   return (

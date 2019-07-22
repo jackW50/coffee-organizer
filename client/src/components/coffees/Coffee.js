@@ -42,7 +42,7 @@ const Coffee = props => {
       {favorite()}
       <p>{certified()}</p>
 
-      <CommentsContainer comments={props.comments} />
+      <CommentsContainer comments={props.comments} coffeeId={props.id} />
       <button onClick={() => props.deleteCoffee(props.id)}>DELETE</button>
 
       <div>
