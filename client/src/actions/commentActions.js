@@ -14,6 +14,15 @@ export function addComment(comment, coffeeId) {
   }
 }
 
-export function deleteComment() {
+export function deleteComment(id, coffeeId) {
   console.log('send api req to destroy comment.');
+  return (dispatch) => {
+    return fetch(`/koffees/${coffeeId}/comments/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => dispatch({ type: "DELETE_COMMENT", paylod: { id: id, coffeeId: coffeeId } }))
+  }
 }

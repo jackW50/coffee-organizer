@@ -104,6 +104,7 @@ function coffeesReducer (state = {
       }
 
     case "DELETE_COMMENT":
+      console.log('sending a delete action to the reducer', action.payload);
       return state;
 
     default:
