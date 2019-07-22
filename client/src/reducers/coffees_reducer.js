@@ -47,7 +47,7 @@ function coffeesReducer (state = {
       let favoriteIndex = favoritesIndexFind(action.payload.id);
       let coffeeSearchIndex = coffeeSearchIndexFind(action.payload.id)
       if (action.payload.favorite) {
-        //debugger
+
         //const coffeeIndex = coffeesIndexFind(action.payload.id);
         return { ...state,
           favorites: [...state.favorites, action.payload],
@@ -67,18 +67,12 @@ function coffeesReducer (state = {
 
     case "DELETE_COFFEE":
       console.log('removing this coffee by its id', action.payload);
-      //debugger
+
       const coffeeInd = coffeesIndexFind(action.payload);
       const favoriteInd = favoritesIndexFind(action.payload);
       const coffeeSearchInd = coffeeSearchIndexFind(action.payload)
       const coffeeArray = [...state.coffees.slice(0, coffeeInd), ...state.coffees.slice(coffeeInd + 1)];
-      // const favoritesArray = () => {
-      //   if (favoriteIndex === -1) {
-      //     return state.favorites
-      //   } else {
-      //     return [...state.favorites.slice(0, favoriteIndex), ...state.favorites.slice(favoriteIndex + 1)]
-      //   }
-      // }
+
       return { ...state,
         coffees: coffeeArray,
         favorites: arrayGeneratorDelete(favoriteInd, state.favorites),
@@ -91,7 +85,7 @@ function coffeesReducer (state = {
       const coffee = state.coffees.find(e => e.id === action.payload.koffee_id);
       //update object
       const updatedCoffee = Object.assign({}, coffee, {comments: [...coffee.comments, action.payload]})
-      //const updateCoffee = {...coffee, comments: [...coffee.comments, { id: action.payload.id, text: action.payload.text }]}
+      //const updatedCoffee = {...coffee, comments: [...coffee.comments, { id: action.payload.id, text: action.payload.text }]}
       //findIndex of coffee
       const cofIndex = state.coffees.findIndex(e => e.id === action.payload.koffee_id);
       //update the state to include the updated object
@@ -105,7 +99,18 @@ function coffeesReducer (state = {
 
     case "DELETE_COMMENT":
       console.log('sending a delete action to the reducer', action.payload);
-      return state;
+      //find coffee
+      const coffeeObject = state.coffees.find(e => e.id === action.payload.coffeeId)
+      const coffeeObjectIndex = state.coffees.findIndex(e => e.id === action.payload.coffeeId)
+      //update coffee comments
+      const updatedCoffeeObject = {...coffeeObject, comments: coffeeObject.comments.filter(e => e.id !== action.payload.id)}
+        //filter the comments array by id !== id (comment id)
+      //update state with updated object
+      return {...state,
+        coffees: [...state.coffees.slice(0, coffeeObjectIndex), updatedCoffeeObject, ...state.coffees.slice(coffeeObjectIndex + 1)],
+        favorites: arrayGeneratorUpdate(favoritesIndexFind(action.payload.coffeeId), state.favorites, updatedCoffeeObject),
+        coffeeSearch: arrayGeneratorUpdate(coffeeSearchIndexFind(action.payload.coffeeId), state.coffeeSearch, updatedCoffeeObject)
+      }
 
     default:
       return state;
