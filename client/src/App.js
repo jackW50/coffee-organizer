@@ -73,7 +73,7 @@ function App(props) {
 
   function home() {
     return(
-      <CoffeeSearch coffees={props.coffeeSearch}/>
+      <CoffeeSearch coffees={props.coffees}/>
     )
   }
 
