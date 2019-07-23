@@ -6,12 +6,14 @@ const CoffeeSearch = props => {
 
   function handleChange(e) {
     setName(e.target.value);
+
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     const query = name
     props.searchCoffees(query);
+
   }
 
   return (
