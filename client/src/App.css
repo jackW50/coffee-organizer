@@ -112,7 +112,7 @@ td:first-child {
 }
 
 .pagination span.active {
-  background-color: #0099FF;
+  background-color: grey;
   color: white;
-  border: 1px solid #0099FF;
+  border: 1px solid black;
 }

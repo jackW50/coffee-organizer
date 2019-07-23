@@ -39,7 +39,7 @@ const Coffees = props => {
 
       <div className="pagination" >
         {pageNumbers.map(
-          e => (<span key={uuid.v4()} onClick={() => setCurrentPage(e)}>{e}</span>)
+          e => (<span key={uuid.v4()} className={e === currentPage ? "active" : "non-active"} onClick={() => setCurrentPage(e)}>{e}</span>)
         )}
       </div>
     </div>
