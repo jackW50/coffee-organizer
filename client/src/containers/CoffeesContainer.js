@@ -11,7 +11,7 @@ class CoffeesContainer extends Component {
   render() {
     return(
       <div>
-        <CoffeeSearch searchCoffees={this.props.searchCoffees} />
+        <CoffeeSearch searchCoffees={this.props.searchCoffees coffees={this.props.coffees}} />
         <Coffees coffees={this.props.coffees}
           deleteCoffee={this.props.deleteCoffee}
           updateCoffee={this.props.updateCoffee}

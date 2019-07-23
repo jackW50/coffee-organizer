@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const CoffeeSearch = props => {
 
   const [ name, setName ] = useState('')
+  const [ hits, setHits ] = usestate(props.coffees)
 
   function handleChange(e) {
     setName(e.target.value);
