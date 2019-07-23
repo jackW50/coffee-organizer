@@ -7,6 +7,7 @@ import {fetchCoffees, addCoffee, seeFavorites, deleteCoffee, updateCoffee } from
 import CoffeesContainer from './containers/CoffeesContainer.js';
 import CoffeeAdd from './components/coffees/CoffeeAdd.js';
 import Coffees from './components/coffees/Coffees.js';
+import CoffeeSearch from './components/coffees/CoffeeSearch.js';
 
 
 const link = {
@@ -72,7 +73,7 @@ function App(props) {
 
   function home() {
     return(
-      <CoffeesContainer coffees={props.coffeeSearch}/>
+      <CoffeeSearch coffees={props.coffeeSearch}/>
     )
   }
 

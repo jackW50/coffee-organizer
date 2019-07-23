@@ -2,27 +2,31 @@ import React, { useState } from 'react';
 
 const CoffeeSearch = props => {
 
-  const [ name, setName ] = useState('')
-  const [ hits, setHits ] = usestate(props.coffees)
+  const [ query, setQuery ] = useState('');
+  const [ hits, setHits ] = useState([]);
 
   function handleChange(e) {
-    setName(e.target.value);
+    setQuery(e.target.value);
+    setHits(props.coffees.filter(e => e.name.toLowerCase().includes(query) ))
 
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const query = name
+  function handleClick(e) {
     props.searchCoffees(query);
-
   }
+
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={name} onChange={handleChange} />
-        <input type="submit" value="search coffee" />
-      </form>
+      <input
+        type="text"
+        value={query}
+        onChange={handleChange}
+      />
+      <button type="button" onCLick={handleClick}>
+      Search
+      </button>
+
     </div>
   )
 }
