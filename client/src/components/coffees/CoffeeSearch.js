@@ -12,7 +12,7 @@ const CoffeeSearch = props => {
   }
 
   function handleClick(e) {
-    props.searchCoffees(query);
+    e.preventDefault();
   }
 
 
@@ -23,21 +23,14 @@ const CoffeeSearch = props => {
         value={query}
         onChange={handleChange}
       />
-      <button type="button" onCLick={handleClick}>
+      <button type="button" onClick={handleClick}>
       Search
       </button>
       <ul>
         {hits.map(coffee => (
           <li key={coffee.id}>
             <header>{coffee.name}</header>
-            <p>Roasts</p>
-            <ul>
-              {coffee.roasts.map(roast => (
-                <li key={roast.id}>
-                  {roast.roast_type}
-                </li>
-              ))}
-            </ul>
+
           </li>
         ))}
       </ul>
