@@ -1,7 +1,10 @@
-import React from 'react';
-import Coffee from './Coffee.js'
+import React, { useState } from 'react';
+import Coffee from './Coffee.js';
+import uuid from 'uuid';
 
 const Coffees = props => {
+
+  const [ currentPage, setCurrentPage ] = useState(1);
 
   const pageNumbers = [];
 
@@ -20,18 +23,27 @@ const Coffees = props => {
   }
 
   return (
-    pageDisplay(1).map(coffee =>
-      <Coffee
-        key={coffee.id}
-        id={coffee.id}
-        name={coffee.name}
-        rainforestAllianceCertified={coffee.rainforest_alliance_certified}
-        favorite={coffee.favorite}
-        comments={coffee.comments}
-        deleteCoffee={props.deleteCoffee}
-        updateCoffee={props.updateCoffee}
-      />
-    )
+    <div>
+      {pageDisplay(currentPage).map(coffee =>
+        <Coffee
+          key={coffee.id}
+          id={coffee.id}
+          name={coffee.name}
+          rainforestAllianceCertified={coffee.rainforest_alliance_certified}
+          favorite={coffee.favorite}
+          comments={coffee.comments}
+          deleteCoffee={props.deleteCoffee}
+          updateCoffee={props.updateCoffee}
+        />
+      )}
+
+      <div className="pagination" >
+        {pageNumbers.map(
+          e => (<span key={uuid.v4()} onClick={() => setCurrentPage(e)}>{e}</span>)
+        )}
+      </div>
+    </div>
+
 
   )
 }
