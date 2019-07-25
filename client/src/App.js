@@ -1,15 +1,12 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-//import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import {fetchCoffees, addCoffee, seeFavorites, deleteCoffee, updateCoffee } from './actions/coffeeActions';
 import CoffeesContainer from './containers/CoffeesContainer.js';
 import CoffeeAdd from './components/coffees/CoffeeAdd.js';
 import Coffees from './components/coffees/Coffees.js';
-import Pic from './components/wrappers/PictureWrapper.js';
-
-//import { useMediaPredicate } from 'react-hook-media';
+//import Pic from './components/wrappers/PictureWrapper.js';
 
 const link = {
   width: '100px',
@@ -94,21 +91,21 @@ function App(props) {
 
 
     return (
-      <React.Fragment >
-        <div className="wrapper">
-          <div className="App">
-            <Router>
-              <React.Fragment >
-                <Navbar />
-                <Route exact path="/" component={home} />
-                <Route exact path="/favorites" component={favorites} />
-                <Route exact path="/add_coffee" component={addCoffee} />
-                <Route exact path="/see_all" component={seeAll} />
-              </React.Fragment>
-            </Router>
-          </div>
+
+      <div className="wrapper">
+        <div className="App">
+          <Router>
+            <React.Fragment >
+              <Navbar />
+              <Route exact path="/" component={home} />
+              <Route exact path="/favorites" component={favorites} />
+              <Route exact path="/add_coffee" component={addCoffee} />
+              <Route exact path="/see_all" component={seeAll} />
+            </React.Fragment>
+          </Router>
         </div>
-      </React.Fragment>
+      </div>
+
     );
 
 }
