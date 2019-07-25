@@ -117,6 +117,24 @@ footer {
   border: 1px solid black;
 }
 
+.form-submit-button {
+  font-size: 20px;
+  color: grey;
+}
+
+.form-submit-button:hover {
+  color: black;
+
+}
+
+button {
+  color: black;
+}
+
+button:hover {
+  color: grey;
+}
+
 
 /*
 .image {

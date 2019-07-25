@@ -20,7 +20,7 @@ const CoffeeSearch = props => {
     <div className="search">
       <form onSubmit={handleSubmit}>
         <input type="text" value={name} onChange={handleChange} />
-        <input type="submit" value="search coffee" />
+        <input className="form-submit-button" type="submit" value="search coffee" />
       </form>
     </div>
   )

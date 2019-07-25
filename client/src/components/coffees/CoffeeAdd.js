@@ -72,7 +72,7 @@ const CoffeeAdd = props => {
           value={roasts.dark}
         />dark <br/>
         <input type="text" value={addRoast} onChange={handleAddRoastChange} placeholder="add roast"/>*optional <br/>
-        <input type="submit" value="add coffee" />
+        <input className="form-submit-button" type="submit" value="add coffee" />
       </form>
     </div>
   )
