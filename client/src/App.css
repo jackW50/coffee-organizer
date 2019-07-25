@@ -98,7 +98,7 @@ footer {
 }
 
 .pagination {
-  margin-top: 25px;
+  margin-top: 40px;
 }
 
 .pagination span {
@@ -108,7 +108,7 @@ footer {
   padding: 8px 16px;
   text-decoration: none;
   transition: background-color .3s;
-  border: 1px solid #ddd;
+  border: 1px solid black;
 }
 
 .pagination span.active {
