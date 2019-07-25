@@ -13,31 +13,6 @@
   opacity: 0.8;
 }
 
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .navbar {
   display: flex;
   align-self: flex-start;
@@ -51,22 +26,26 @@ div .flex-center {
   display: flex;
   align-self: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
-  background-image: none;
-  background-color: rgb(234, 234, 234);
-  margin-top: 100px;
-  padding: 0 0 100% 0;
+  margin-top: 75px;
+
 }
 
 .container {
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: baseline;
   align-content: center;
   background-color: rgb(234, 234, 234);
+}
+
+.wrapper {
+  height: 1500px;
+  background-color: rgb(234, 234, 234);
+
+
 }
 
 @media screen and (min-width: 415px){
@@ -78,7 +57,8 @@ div .flex-center {
 
 .search {
 
-  margin: 50px;
+  display: flex;
+  flex-direction: column;
 
 }
 

@@ -70,7 +70,9 @@ function App(props) {
 
   function addCoffee() {
     return(
-      <CoffeeAdd addCoffee={props.addCoffee} coffees={props.coffees}/>
+      <div>
+        <CoffeeAdd addCoffee={props.addCoffee} coffees={props.coffees}/>
+      </div>
     )
   }
 
@@ -93,18 +95,19 @@ function App(props) {
 
     return (
       <React.Fragment >
-        <div className="App">
-          <Router>
-            <React.Fragment >
-              <Navbar />
-              <Route exact path="/" component={home} />
-              <Route exact path="/favorites" component={favorites} />
-              <Route exact path="/add_coffee" component={addCoffee} />
-              <Route exact path="/see_all" component={seeAll} />
-            </React.Fragment>
-          </Router>
+        <div className="wrapper">
+          <div className="App">
+            <Router>
+              <React.Fragment >
+                <Navbar />
+                <Route exact path="/" component={home} />
+                <Route exact path="/favorites" component={favorites} />
+                <Route exact path="/add_coffee" component={addCoffee} />
+                <Route exact path="/see_all" component={seeAll} />
+              </React.Fragment>
+            </Router>
+          </div>
         </div>
-
       </React.Fragment>
     );
 
