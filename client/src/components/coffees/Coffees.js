@@ -22,6 +22,21 @@ const Coffees = props => {
     return props.coffees.slice((newNumber - 3), newNumber);
   }
 
+  function sectionDisplay() {
+    if (pageNumbers.length > 0) {
+      return (
+        <section className="pagination" >
+          <span onClick={() => setCurrentPage(1)}>&laquo;</span>
+          {pageNumbers.map(
+            e => (<span key={uuid.v4()} className={e === currentPage ? "active" : ""}
+            onClick={() => setCurrentPage(e)}>{e}</span>)
+          )}
+          <span onClick={() => setCurrentPage(pageNumbers[pageNumbers.length - 1])}>&raquo;</span>
+        </section>
+      )
+    }
+  }
+
   return (
     <div className="coffee-list">
       {pageDisplay(currentPage).map(coffee =>
@@ -36,12 +51,7 @@ const Coffees = props => {
           updateCoffee={props.updateCoffee}
         />
       )}
-      <section className="pagination" >
-        {pageNumbers.map(
-          e => (<span key={uuid.v4()} className={e === currentPage ? "active" : ""}
-          onClick={() => setCurrentPage(e)}>{e}</span>)
-        )}
-      </section>
+      {sectionDisplay()}
     </div>
   )
 }
