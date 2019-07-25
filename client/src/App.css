@@ -34,11 +34,25 @@ div .flex-center {
 
 .coffee-list {
   padding-left: 20px;
+  padding-top: 15px;
 }
 
 .coffee {
   border-bottom: 2px solid black;
   padding: 10px 10px 20px;
+}
+
+.comment-list {
+
+}
+
+.comment {
+ font-size: 12px;
+}
+
+.certification {
+  font-style: italic;
+  font-family: "Courier New", serif;
 }
 
 .container {

@@ -10,7 +10,7 @@ const Comment = props => {
 
   return (
     <li className="comment">
-      <span>{props.comment.text}</span><button onClick={handleDelete}>X</button>
+      <span>{props.comment.text}  </span><button onClick={handleDelete}>X</button>
     </li>
   )
 }
