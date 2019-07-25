@@ -37,7 +37,7 @@ const Coffee = props => {
   }
 
   return (
-    <div>
+    <div className="coffee" >
       <h5>{props.name}</h5>
       {favorite()}
       <p>{certified()}</p>

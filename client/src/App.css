@@ -32,6 +32,15 @@ div .flex-center {
 
 }
 
+.coffee-list {
+  padding-left: 20px;
+}
+
+.coffee {
+  border-bottom: 2px solid black;
+  padding: 10px 10px 20px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
