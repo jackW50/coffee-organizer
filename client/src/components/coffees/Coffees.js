@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Coffee from './Coffee.js';
 import uuid from 'uuid';
+import Pagination from '../ui/Pagination.js';
 
 const Coffees = props => {
   const [ currentPage, setCurrentPage ] = useState(1);
@@ -25,14 +26,7 @@ const Coffees = props => {
   function sectionDisplay() {
     if (pageNumbers.length > 0) {
       return (
-        <section className="pagination" >
-          <span onClick={() => setCurrentPage(1)}>&laquo;</span>
-          {pageNumbers.map(
-            e => (<span key={uuid.v4()} className={e === currentPage ? "active" : ""}
-            onClick={() => setCurrentPage(e)}>{e}</span>)
-          )}
-          <span onClick={() => setCurrentPage(pageNumbers[pageNumbers.length - 1])}>&raquo;</span>
-        </section>
+        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pageNumbers={pageNumbers} />
       )
     }
   }

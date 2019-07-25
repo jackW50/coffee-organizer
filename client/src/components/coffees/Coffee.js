@@ -4,8 +4,6 @@ import CommentsContainer from '../../containers/CommentsContainer.js';
 
 const Coffee = props => {
 
-
-
   function certified() {
     if (props.rainforestAllianceCertified) {
       return "Rainforest Alliance Certified"
