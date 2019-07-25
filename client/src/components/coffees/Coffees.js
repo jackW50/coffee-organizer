@@ -9,22 +9,22 @@ const Coffees = props => {
 
   let count = 0;
 
-  const sixes = props.coffees.length / 6
-  const totalPages = Math.ceil(sixes);
+  const threes = props.coffees.length / 3
+  const totalPages = Math.ceil(threes);
 
-  while (count < TotalPages) {
+  while (count < totalPages) {
     count++;
     pageNumbers.push(count);
   }
 
   function pageDisplay(number) {
-    const newNumber = number * 6;
-    return props.coffees.slice((newNumber - 6), newNumber);
+    const newNumber = number * 3;
+    return props.coffees.slice((newNumber - 3), newNumber);
   }
 
   return (
     <div className="coffee-list">
-      {props.coffees.map(coffee =>
+      {pageDisplay(currentPage).map(coffee =>
         <Coffee
           key={coffee.id}
           id={coffee.id}
@@ -36,6 +36,12 @@ const Coffees = props => {
           updateCoffee={props.updateCoffee}
         />
       )}
+      <section className="pagination" >
+        {pageNumbers.map(
+          e => (<span key={uuid.v4()} className={e === currentPage ? "active" : ""}
+          onClick={() => setCurrentPage(e)}>{e}</span>)
+        )}
+      </section>
     </div>
   )
 }
