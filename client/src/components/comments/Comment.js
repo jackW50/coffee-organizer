@@ -9,9 +9,9 @@ const Comment = props => {
   }
 
   return (
-    <div>
-      <span>{props.comment.text}</span><button onClick={handleDelete}>DELETE</button>
-    </div>
+    <li className="comment">
+      <span>{props.comment.text}</span><button onClick={handleDelete}>X</button>
+    </li>
   )
 }
 

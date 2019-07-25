@@ -38,12 +38,12 @@ const Coffee = props => {
 
   return (
     <div className="coffee" >
-      <h5>{props.name}</h5>
+      <h3>{props.name}</h3>
       {favorite()}
-      <p>{certified()}</p>
+      <p className="certification">{certified()}</p>
 
       <CommentsContainer comments={props.comments} coffeeId={props.id} />
-      <button onClick={() => props.deleteCoffee(props.id)}>DELETE</button>
+      <button onClick={() => props.deleteCoffee(props.id)}>DELETE COFFEE</button>
 
       <div>
 
