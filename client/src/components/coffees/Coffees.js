@@ -1,5 +1,6 @@
-import React from 'react';
-import Coffee from './Coffee.js'
+import React, { useState } from 'react';
+import Coffee from './Coffee.js';
+import uuid from 'uuid';
 
 const Coffees = props => {
   return (
