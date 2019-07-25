@@ -7,7 +7,6 @@ import CoffeesContainer from './containers/CoffeesContainer.js';
 import CoffeeAdd from './components/coffees/CoffeeAdd.js';
 import Coffees from './components/coffees/Coffees.js';
 import Navbar from './components/ui/Navbar.js';
-//import Pic from './components/wrappers/PictureWrapper.js';
 
 function App(props) {
 

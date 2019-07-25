@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './index.css';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
 import thunk from 'redux-thunk';
 import App from './App';
-//import CoffeeAdd from './components/coffees/CoffeeAdd.js';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
