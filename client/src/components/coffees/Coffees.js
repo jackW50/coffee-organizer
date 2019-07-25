@@ -3,6 +3,25 @@ import Coffee from './Coffee.js';
 import uuid from 'uuid';
 
 const Coffees = props => {
+  const [ currentPage, setCurrentPage ] = useState(1);
+
+  const pageNumbers = [];
+
+  let count = 0;
+
+  const sixes = props.coffees.length / 6
+  const totalPages = Math.ceil(sixes);
+
+  while (count < TotalPages) {
+    count++;
+    pageNumbers.push(count);
+  }
+
+  function pageDisplay(number) {
+    const newNumber = number * 6;
+    return props.coffees.slice((newNumber - 6), newNumber);
+  }
+
   return (
     <div className="coffee-list">
       {props.coffees.map(coffee =>
