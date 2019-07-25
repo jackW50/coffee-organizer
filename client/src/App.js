@@ -7,7 +7,9 @@ import {fetchCoffees, addCoffee, seeFavorites, deleteCoffee, updateCoffee } from
 import CoffeesContainer from './containers/CoffeesContainer.js';
 import CoffeeAdd from './components/coffees/CoffeeAdd.js';
 import Coffees from './components/coffees/Coffees.js';
+import Pic from './components/wrappers/PictureWrapper.js';
 
+//import { useMediaPredicate } from 'react-hook-media';
 
 const link = {
   width: '100px',
@@ -20,7 +22,7 @@ const link = {
 }
 
 const Navbar = () =>
-  <div className="flex">
+  <div className="navbar">
     <NavLink
       to="/"
       exact
@@ -60,7 +62,9 @@ function App(props) {
 
   function favorites() {
     return (
-      <Coffees coffees={props.favorites} updateCoffee={props.updateCoffee} deleteCoffee={props.deleteCoffee} />
+      <div>
+        <Coffees coffees={props.favorites} updateCoffee={props.updateCoffee} deleteCoffee={props.deleteCoffee} />
+      </div>
     )
   }
 
@@ -72,30 +76,36 @@ function App(props) {
 
   function home() {
     return(
-      <CoffeesContainer coffees={props.coffeeSearch}/>
+      <div className="flex-center">
+        <CoffeesContainer coffees={props.coffeeSearch}/>
+      </div>
     )
   }
 
   function seeAll() {
     return(
-      <Coffees coffees={props.coffees} updateCoffee={props.updateCoffee} deleteCoffee={props.deleteCoffee} />
+      <div className="flex-center">
+        <Coffees coffees={props.coffees} updateCoffee={props.updateCoffee} deleteCoffee={props.deleteCoffee} />
+      </div>
     )
   }
 
 
     return (
-      <div className="App">
+      <React.Fragment >
+        <div className="App">
+          <Router>
+            <React.Fragment >
+              <Navbar />
+              <Route exact path="/" component={home} />
+              <Route exact path="/favorites" component={favorites} />
+              <Route exact path="/add_coffee" component={addCoffee} />
+              <Route exact path="/see_all" component={seeAll} />
+            </React.Fragment>
+          </Router>
+        </div>
 
-      <Router>
-        <React.Fragment>
-          <Navbar />
-          <Route exact path="/" component={home} />
-          <Route exact path="/favorites" component={favorites} />
-          <Route exact path="/add_coffee" component={addCoffee} />
-          <Route exact path="/see_all" component={seeAll} />
-        </React.Fragment>
-      </Router>
-      </div>
+      </React.Fragment>
     );
 
 }
