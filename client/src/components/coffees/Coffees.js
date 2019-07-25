@@ -3,6 +3,7 @@ import Coffee from './Coffee.js'
 
 const Coffees = props => {
   return (
+
     props.coffees.map(coffee =>
       <Coffee
         key={coffee.id}

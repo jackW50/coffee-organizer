@@ -42,7 +42,7 @@ const CoffeeAdd = props => {
   }
 
   return (
-    <div>
+    <div className="container">
       <h3>Add a Coffee</h3>
       <form onSubmit={handleSubmit}>
         <input type="text" value={name} onChange={handleNameChange} placeholder="coffee name"/><br/>

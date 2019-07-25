@@ -17,7 +17,7 @@ const CoffeeSearch = props => {
   }
 
   return (
-    <div>
+    <div className="search">
       <form onSubmit={handleSubmit}>
         <input type="text" value={name} onChange={handleChange} />
         <input type="submit" value="search coffee" />
