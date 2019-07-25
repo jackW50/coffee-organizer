@@ -62,7 +62,7 @@ function App(props) {
 
   function favorites() {
     return (
-      <div>
+      <div className="flex-center">
         <Coffees coffees={props.favorites} updateCoffee={props.updateCoffee} deleteCoffee={props.deleteCoffee} />
       </div>
     )
@@ -70,7 +70,7 @@ function App(props) {
 
   function addCoffee() {
     return(
-      <div>
+      <div className="flex-center">
         <CoffeeAdd addCoffee={props.addCoffee} coffees={props.coffees}/>
       </div>
     )
