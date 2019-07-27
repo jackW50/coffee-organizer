@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Coffee from './Coffee.js';
-import uuid from 'uuid';
 import Pagination from '../ui/Pagination.js';
 
 const Coffees = props => {

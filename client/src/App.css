@@ -90,8 +90,19 @@ div .flex-center {
 }
 
 .favorite {
-  color: red
+  color: green;
 }
+/*
+.link {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  margin: 0 6px 6px;
+  background: 'grey';
+  text-decoration: 'none';
+  color: 'white';
+}
+*/
 
 footer {
   height: 400px;
