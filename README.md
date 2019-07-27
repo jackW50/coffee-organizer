@@ -10,18 +10,28 @@ to add or delete comments for each coffee product of you choose to do so.
 
 * Fork and clone repository
 * Change into app directory
-  $ cd coffee-organizer
+
+    $ cd coffee-organizer
+    
 * Run bundle and migrate files
-  $ bundle install
-  $ rake db:migrate
+
+    $ bundle install
+    $ rake db:migrate
+
 * Change into the client directory
-  $ cd client
+
+      $ cd client
+
 * Install client dependencies
-  $ npm install
+
+      $ npm install
+
 * Change out of client directory
-  $ cd ..
+
+      $ cd ..
 * Start server
-  $ rake start
+
+      $ rake start
 
 ## Usage
 
