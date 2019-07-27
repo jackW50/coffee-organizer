@@ -7,6 +7,7 @@ in the database or to see just the ones that you have termed a favorite. The app
 to add or delete comments for each coffee product of you choose to do so.
 
 ##Installation
+
 * Fork and clone repository
 * Change into app directory
   $ cd coffee-organizer
