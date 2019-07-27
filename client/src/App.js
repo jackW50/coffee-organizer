@@ -64,6 +64,9 @@ function App(props) {
               <Route exact path="/see_all" component={seeAll} />
             </React.Fragment>
           </Router>
+          <footer>
+            <small>coffee organizer 2019</small>
+          </footer>
         </div>
       </div>
 
