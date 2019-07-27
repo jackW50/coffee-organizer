@@ -6,7 +6,7 @@ products. It provides a search feature to search for coffee/coffees, and options
 in the database or to see just the ones that you have termed a favorite. The app also gives you the ability
 to add or delete comments for each coffee product of you choose to do so.
 
-##Installation
+## Installation
 
 * Fork and clone repository
 * Change into app directory
@@ -23,7 +23,8 @@ to add or delete comments for each coffee product of you choose to do so.
 * Start server
   $ rake start
 
-##Usage
+## Usage
+
 * There are four routes to explore, and are easily navigated by using the navigation bar
 in the top left corner of the app.
   * Home
@@ -40,9 +41,9 @@ in the top left corner of the app.
   * See All
     * This page essentially shows the user all the coffee products within the database.
 
-##Contributing
+## Contributing
 Bug reports and pull requests are welcome on Github.
 
-##License
+## License
 This application is available as open source under the terms of the
   <a href="LICENSE">LICENSE</a>
