@@ -12,7 +12,6 @@ class KoffeesController < ApplicationController
   end
 
   def create
-    #binding.pry
     @coffee = Koffee.create(koffee_params)
     render json: @coffee
   end
@@ -25,7 +24,7 @@ class KoffeesController < ApplicationController
     render json: @coffee
   end
 
-  def destroy 
+  def destroy
     koffee = Koffee.find_by(id: params[:id])
     koffee.koffee_roasts.each do |koffee_roast|
       koffee_roast.destroy
