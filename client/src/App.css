@@ -1,7 +1,8 @@
 .App {
   display: flex;
   flex-direction: column;
-  background-image: url(/pexels-photo-414630.jpg);
+  /*background-image: url(/pexels-photo-414630.jpg);*/
+  background-image: url(pexels-photo-585754.jpg);
   background-size: cover;
   top: 0;
   left: 0;
